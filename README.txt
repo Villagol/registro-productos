@@ -23,8 +23,8 @@ Tecnologías: HTML, CSS, PHP, JavaScript(AJAX) y PostgreSQL.
    - `check_codigo.php`
 
    Ejemplo de cadena:
-   pg_connect("host=localhost dbname=tienda user=postgres password=TU_CONTRASEÑA");
-
+   pg_connect("host=localhost dbname=tienda user=postgres password=admin007"); (Cambiar por contraseña de equipo)
+   
 5. Iniciar Apache (XAMPP).
 
 6. Abrir en el navegador:
@@ -42,3 +42,4 @@ Tecnologías: HTML, CSS, PHP, JavaScript(AJAX) y PostgreSQL.
 │  └─ app.js
 └─ sql/
    └─ productos.sql
+
