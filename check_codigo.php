@@ -13,7 +13,8 @@ if (!$conn) {
   exit;
 }
 
-$check = pg_query_params($conn, "SELECT 1 FROM producto WHERE codigo=$1", [$codigo]);
+$check = pg_query_params($conn, "SELECT 1 FROM inventario.producto WHERE codigo=$1", [$codigo]);
+
 $exists = ($check && pg_num_rows($check) > 0);
 
 echo json_encode(['ok' => true, 'exists' => $exists]);

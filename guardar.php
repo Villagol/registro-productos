@@ -19,14 +19,14 @@ if (!$conn) {
   exit;
 }
 
-$check = pg_query_params($conn, "SELECT 1 FROM producto WHERE codigo=$1", [$codigo]);
+$check = pg_query_params($conn, "SELECT 1 FROM inventario.producto WHERE codigo=$1", [$codigo]);
 if ($check && pg_num_rows($check) > 0) {
   echo json_encode(['ok' => false, 'message' => 'El código del producto ya está registrado']);
   exit;
 }
 
 $material_str = implode(", ", $material);
-$sql = "INSERT INTO producto (codigo, nombre, bodega_id, sucursal_id, moneda_id, precio, material, descripcion)
+$sql = "INSERT INTO inventario.producto (codigo, nombre, bodega_id, sucursal_id, moneda_id, precio, material, descripcion)
         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
 $params = [$codigo, $nombre, $bodega, $sucursal, $moneda, $precio, $material_str, $descripcion];
 $res = pg_query_params($conn, $sql, $params);

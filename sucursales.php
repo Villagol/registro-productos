@@ -14,12 +14,7 @@ if (!$conn) {
 }
 
 
-$sql = "SELECT id, nombre FROM sucursal WHERE bodega_id = $1 ORDER BY nombre ASC";
-$res = pg_query_params($conn, $sql, [$bodegaId]);
-
-
-$sql = "SELECT id, nombre FROM sucursal WHERE bodega_id = $1 ORDER BY nombre ASC";
-$res = pg_query_params($conn, $sql, [$bodegaId]);
+$sql = "SELECT id, nombre FROM inventario.sucursal WHERE bodega_id = $1 ORDER BY nombre ASC";
 
 $data = [];
 if ($res) {
