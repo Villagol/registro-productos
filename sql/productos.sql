@@ -57,3 +57,5 @@ INSERT INTO moneda (codigo) VALUES
 ('EUR'),
 ('GBP'),
 ('JPY');
+--Ver Productos
+SELECT * FROM producto
