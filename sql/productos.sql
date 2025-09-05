@@ -1,7 +1,7 @@
 -- Crear esquema
 CREATE SCHEMA inventario;
 
--- Crear tablas
+-- Crear tablas y eliminar para evitar errores
 DROP TABLE IF EXISTS inventario.producto CASCADE;
 DROP TABLE IF EXISTS inventario.sucursal CASCADE;
 DROP TABLE IF EXISTS inventario.bodega CASCADE;
