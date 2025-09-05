@@ -1,11 +1,9 @@
 <?php
 // Conexión a BD
-$conn = pg_connect("host=localhost dbname=tienda user=postgres password=admin007");
-if(!$conn){die("No se realizó la conexión a la BD");}
-
+include "conexion.php";
 // Cargar datos (Bodegas y Monedas)
-$bodegas = pg_query($conn, "SELECT id, nombre FROM inventario.bodega ORDER BY nombre ASC");
-$monedas = pg_query($conn, "SELECT id, codigo FROM inventario.moneda ORDER BY codigo ASC");
+$bodegas = pg_query_params($conn, "SELECT id, nombre FROM inventario.bodega ORDER BY nombre ASC", []);
+$monedas = pg_query_params($conn, "SELECT id, codigo FROM inventario.moneda ORDER BY codigo ASC", []);
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -13,7 +13,7 @@ $material = isset($_POST['material']) ? $_POST['material'] : [];
 $descripcion = param('descripcion');
 
 // Conexión con BD
-$conn = pg_connect("host=localhost dbname=tienda user=postgres password=admin007");
+include "conexion.php";
 if (!$conn) {
   echo json_encode(['ok' => false, 'message' => 'No se pudo conectar a la base de datos']);
   exit;

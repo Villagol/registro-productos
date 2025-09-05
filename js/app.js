@@ -10,6 +10,13 @@ async function checkCodigoExiste(codigo) {
   return !!(json.ok && json.exists);
 }
 
+$("#precio").addEventListener("input", () => {
+  const val = $("#precio").value;
+  if (val.includes(",")) {
+    $("#precio").value = val.replace(/,/g, ".");
+  }
+});
+
 $("#bodega").addEventListener("change", async () => {
   const bodegaId = $("#bodega").value.trim();
   const $sucursal = $("#sucursal");
@@ -51,7 +58,7 @@ $("#btnGuardar").addEventListener("click", async () => {
   const bodega = $("#bodega").value.trim();
   const sucursal = $("#sucursal").value.trim();
   const moneda = $("#moneda").value.trim();
-  const precio = $("#precio").value.trim();
+  const precio = $("#precio").value.replace(/,/g, ".").trim(); // normaliza por si acaso
   const descripcion = $("#descripcion").value.trim();
   const materiales = Array.from($$('input[name="material[]"]:checked')).map(el => el.value);
 

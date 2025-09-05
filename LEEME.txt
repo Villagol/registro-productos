@@ -12,22 +12,17 @@ Tecnologías: HTML, CSS, PHP, JavaScript(AJAX) y PostgreSQL.
 1. Clonar el proyecto en la carpeta pública de tu servidor (en XAMPP es `htdocs`):
    git clone https://github.com/Villagol/registro-productos.git
 
-2. Crear la base de datos `tienda` en PostgreSQL.
+2. Importar el SQL de `/sql/productos.sql` (pgAdmin → Query Tool → ejecutar).
 
-3. Importar el SQL de `/sql/productos.sql` (pgAdmin → Query Tool → ejecutar).
-
-4. Configurar credenciales de BD en:
-   - `index.php`
-   - `guardar.php`
-   - `sucursales.php`
-   - `check_codigo.php`
+3. Configurar credenciales de BD en:
+   - `conexion.php`
 
    Ejemplo de cadena:
-   pg_connect("host=localhost dbname=tienda user=postgres password=admin007"); (Cambiar por contraseña de equipo)
+   pg_connect("host=localhost dbname=tienda user=postgres password=CONTRASEÑA_EJEMPLO"); (Cambiar por contraseña de equipo)
    
-5. Iniciar Apache (XAMPP).
+4. Iniciar Apache (XAMPP).
 
-6. Abrir en el navegador:
+5. Abrir en el navegador:
    http://localhost/registro-productos/index.php
 
 ## Estructura
@@ -36,6 +31,8 @@ Tecnologías: HTML, CSS, PHP, JavaScript(AJAX) y PostgreSQL.
 ├─ guardar.php
 ├─ sucursales.php
 ├─ check_codigo.php
+├─ conexiones.php
+├─ cargar_datos.php
 ├─ css/
 │  └─ estilos.css
 ├─ js/

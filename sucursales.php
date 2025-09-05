@@ -7,14 +7,11 @@ if ($bodegaId === '' || !ctype_digit($bodegaId)) {
   exit;
 }
 
-$conn = pg_connect("host=localhost dbname=tienda user=postgres password=admin007");
+include "conexion.php";
 if (!$conn) {
   echo json_encode(['ok' => false, 'data' => [], 'message' => 'Error de conexión']);
   exit;
 }
-
-
-
 
 $sql = "SELECT id, nombre FROM inventario.sucursal WHERE bodega_id = $1 ORDER BY nombre ASC";
 $res = pg_query_params($conn, $sql, [$bodegaId]);

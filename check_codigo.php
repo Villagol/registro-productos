@@ -7,7 +7,7 @@ if ($codigo === '') {
   exit;
 }
 
-$conn = pg_connect("host=localhost dbname=tienda user=postgres password=admin007");
+include "conexion.php";
 if (!$conn) {
   echo json_encode(['ok' => false, 'exists' => false, 'message' => 'Error de conexión']);
   exit;
