@@ -95,13 +95,16 @@ $("#btnGuardar").addEventListener("click", async () => {
   fd.append("descripcion", descripcion);
 
   fetch("guardar.php", { method: "POST", body: fd })
-    .then(r => r.json())
-    .then(res => {
-      if (!res.ok) { alert(res.message || "Error al guardar el producto"); return; }
-      $("#resultado").textContent = "Producto Guardado con éxito";
-      $("#formProducto").reset();
-      $("#sucursal").disabled = true;
-      lastAlertedCode = null;
-    })
-    .catch(() => alert("Error de red al intentar guardar"));
+  .then(r => r.json())
+  .then(res => {
+    if (!res.ok) {
+      alert(res.message || "Error al guardar el producto");
+      return;
+    }
+    alert("Producto guardado con éxito");
+    $("#formProducto").reset();
+    $("#sucursal").disabled = true;
+    lastAlertedCode = null;
+  })
+  .catch(() => alert("Error de red al intentar guardar"));
 });
