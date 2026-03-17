@@ -1,0 +1,81 @@
+============================================================
+  Sistema de Registro de Productos - Instrucciones de instalación
+============================================================
+
+Versiones utilizadas:
+  - PHP: 8.2
+  - Base de datos: PostgreSQL 18
+
+------------------------------------------------------------
+REQUISITOS PREVIOS
+------------------------------------------------------------
+
+1. PHP 8.2 instalado y configurado en el PATH del sistema
+   Descarga: https://windows.php.net/download
+   (Descargar: PHP 8.2 VS16 x64 Thread Safe .zip)
+
+2. PostgreSQL instalado
+   Descarga: https://www.postgresql.org/download/windows/
+
+3. Extensiones de PHP habilitadas en php.ini:
+   - Descomentar: extension_dir = "C:\php\ext"  (ajustar ruta según instalación)
+   - Descomentar: extension=pdo_pgsql
+   - Descomentar: extension=pgsql
+
+------------------------------------------------------------
+PASOS DE INSTALACIÓN
+------------------------------------------------------------
+
+1. CLONAR O DESCOMPRIMIR EL PROYECTO
+   Colocar la carpeta del proyecto en cualquier directorio.
+   Ejemplo: C:\proyecto\registro-productos
+
+2. CREAR LA BASE DE DATOS EN POSTGRESQL
+   Abrir SQL Shell (psql) y ejecutar:
+
+   CREATE DATABASE registro_productos;
+   \c registro_productos
+
+   Luego copiar y pegar el contenido del archivo:
+   sql/schema.sql
+
+3. CONFIGURAR LA CONEXIÓN
+   Editar el archivo php/config.php y ajustar:
+     - DB_HOST  → host de PostgreSQL (por defecto: localhost)
+     - DB_PORT  → puerto (por defecto: 5432)
+     - DB_NAME  → registro_productos
+     - DB_USER  → usuario de PostgreSQL (por defecto: postgres)
+     - DB_PASS  → contraseña del usuario postgres
+
+4. LEVANTAR EL SERVIDOR
+   Abrir CMD en la raíz del proyecto y ejecutar:
+
+   php -S localhost:8000
+
+   O con ruta completa si php no está en el PATH:
+   C:\php\php.exe -S localhost:8000
+
+5. ABRIR EN EL NAVEGADOR
+   http://localhost:8000
+
+------------------------------------------------------------
+ESTRUCTURA DEL PROYECTO
+------------------------------------------------------------
+
+registro-productos/
+├── index.php              → Formulario principal
+├── LEEME.txt              → Este archivo
+├── css/
+│   └── estilos.css        → Estilos de la interfaz
+├── js/
+│   └── formulario.js      → Validaciones y AJAX
+├── php/
+│   ├── config.php         → Configuración de BD
+│   ├── get_bodegas.php    → API: lista de bodegas
+│   ├── get_sucursales.php → API: sucursales por bodega
+│   ├── get_monedas.php    → API: lista de monedas
+│   └── guardar_producto.php → API: guardar producto
+└── sql/
+    └── schema.sql         → Creación de tablas y datos de ejemplo
+
+------------------------------------------------------------
