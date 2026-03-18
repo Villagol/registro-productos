@@ -32,13 +32,13 @@
             <div class="campo">
                 <label for="bodega">Bodega</label>
                 <select id="bodega" name="bodega_id">
-                    <option value="">-- Seleccione una bodega --</option>
+                    <option value=""></option>
                 </select>
             </div>
             <div class="campo">
                 <label for="sucursal">Sucursal</label>
                 <select id="sucursal" name="sucursal_id">
-                    <option value="">-- Seleccione una sucursal --</option>
+                    <option value=""></option>
                 </select>
             </div>
         </div>
@@ -48,7 +48,7 @@
             <div class="campo">
                 <label for="moneda">Moneda</label>
                 <select id="moneda" name="moneda_id">
-                    <option value="">-- Seleccione una moneda --</option>
+                    <option value=""></option>
                 </select>
             </div>
             <div class="campo">

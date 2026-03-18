@@ -8,7 +8,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Limpiar formulario al cargar/recargar la página
     document.getElementById('form-producto').reset();
-    document.getElementById('sucursal').innerHTML = '<option value="">-- Seleccione una sucursal --</option>';
+    document.getElementById('sucursal').innerHTML = '<option value=""></option>';
 
     cargarBodegas();
     cargarMonedas();
@@ -52,7 +52,7 @@ function cargarSucursales(bodegaId) {
     select.disabled = true;
 
     if (!bodegaId) {
-        select.innerHTML = '<option value="">-- Seleccione una sucursal --</option>';
+        select.innerHTML = '<option value=""></option>';
         select.disabled = false;
         return;
     }
@@ -60,7 +60,7 @@ function cargarSucursales(bodegaId) {
     fetch('/php/get_sucursales.php?bodega_id=' + bodegaId)
         .then(res => res.json())
         .then(data => {
-            select.innerHTML = '<option value="">-- Seleccione una sucursal --</option>';
+            select.innerHTML = '<option value=""></option>';
             data.forEach(s => {
                 const opt = document.createElement('option');
                 opt.value = s.id;
@@ -215,7 +215,7 @@ function enviarFormulario() {
             mensaje.textContent = data.mensaje;
             document.getElementById('form-producto').reset();
             // Limpiar sucursales al resetear el formulario
-            document.getElementById('sucursal').innerHTML = '<option value="">-- Seleccione una sucursal --</option>';
+            document.getElementById('sucursal').innerHTML = '<option value=""></option>';
         } else {
             mensaje.className = 'mensaje error';
             mensaje.textContent = data.error || 'Error desconocido.';
